@@ -1,11 +1,14 @@
 package model;
 
+import com.j256.ormlite.dao.ForeignCollection;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.field.ForeignCollectionField;
+import com.j256.ormlite.table.DatabaseTable;
 
 /**
  * Created by user on 19.1.2017..
  */
+@DatabaseTable(tableName = "avion")
 public class Avion {
     public static final String POLJE_OZNAKA = "oznaka";
     public static final String POLJE_RASPON_KRILA = "raspon_krila";
@@ -18,7 +21,7 @@ public class Avion {
     private int rasponKrila;
 
     @ForeignCollectionField(foreignFieldName = "avion")
-    private ForeignCollectionField<Roba> roba;
+    private ForeignCollection<Roba> roba;
 
     public Avion(){
 
@@ -41,7 +44,7 @@ public class Avion {
         return rasponKrila;
     }
 
-    public ForeignCollectionField<Roba> getRoba() {
+    public ForeignCollection<Roba> getRoba() {
         return roba;
     }
 
@@ -57,7 +60,7 @@ public class Avion {
         this.rasponKrila = rasponKrila;
     }
 
-    public void setRoba(ForeignCollectionField<Roba> roba) {
+    public void setRoba(ForeignCollection<Roba> roba) {
         this.roba = roba;
     }
 
