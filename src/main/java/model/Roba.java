@@ -22,13 +22,13 @@ public class Roba {
     @DatabaseField(columnName = POLJE_OPIS,canBeNull = false)
     private String opis;
     @DatabaseField(columnName = POLJE_TEZINA,canBeNull = false)
-    private String tezina;
+    private double tezina;
     @DatabaseField(columnName = POLJE_VISINA,canBeNull = false)
-    private String visina;
+    private double visina;
     @DatabaseField(columnName = POLJE_DUZINA,canBeNull = false)
-    private String duzina;
+    private double duzina;
     @DatabaseField(columnName = POLJE_SIRINA,canBeNull = false)
-    private String sirina;
+    private double sirina;
 
     @DatabaseField(foreign = true,foreignAutoRefresh = true,canBeNull = true)
     private Avion avion;
@@ -37,7 +37,7 @@ public class Roba {
 
     }
 
-    public Roba(String naziv, String opis, String tezina, String visina, String duzina, String sirina) {
+    public Roba(String naziv, String opis, double tezina, double visina, double duzina, double sirina) {
         this.naziv = naziv;
         this.opis = opis;
         this.tezina = tezina;
@@ -58,19 +58,19 @@ public class Roba {
         return opis;
     }
 
-    public String getTezina() {
+    public double getTezina() {
         return tezina;
     }
 
-    public String getVisina() {
+    public double getVisina() {
         return visina;
     }
 
-    public String getDuzina() {
+    public double getDuzina() {
         return duzina;
     }
 
-    public String getSirina() {
+    public double getSirina() {
         return sirina;
     }
 
@@ -86,19 +86,19 @@ public class Roba {
         this.opis = opis;
     }
 
-    public void setTezina(String tezina) {
+    public void setTezina(double tezina) {
         this.tezina = tezina;
     }
 
-    public void setVisina(String visina) {
+    public void setVisina(double visina) {
         this.visina = visina;
     }
 
-    public void setDuzina(String duzina) {
+    public void setDuzina(double duzina) {
         this.duzina = duzina;
     }
 
-    public void setSirina(String sirina) {
+    public void setSirina(double sirina) {
         this.sirina = sirina;
     }
 
@@ -113,5 +113,9 @@ public class Roba {
                 ", duzina='" + duzina + '\'' +
                 ", sirina='" + sirina + '\'' +
                 '}';
+    }
+
+    public void setAvion(Avion avion) {
+        this.avion = avion;
     }
 }

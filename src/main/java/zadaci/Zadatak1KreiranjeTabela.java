@@ -21,7 +21,7 @@ public class Zadatak1KreiranjeTabela {
 
             TableUtils.dropTable(connectionSource, Roba.class,true);
             TableUtils.dropTable(connectionSource, Avion.class,true);
-            
+
             TableUtils.createTable(connectionSource, Avion.class);
             TableUtils.createTable(connectionSource,Roba.class);
 
