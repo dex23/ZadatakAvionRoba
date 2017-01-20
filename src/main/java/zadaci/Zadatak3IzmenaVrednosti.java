@@ -38,7 +38,7 @@ public class Zadatak3IzmenaVrednosti {
 
             robaDao.update(robaZaIzmenu);
 
-          
+
             roba=robaDao.queryForAll();
             for(Roba r:roba)
                 System.out.println("Roba = " + r);
