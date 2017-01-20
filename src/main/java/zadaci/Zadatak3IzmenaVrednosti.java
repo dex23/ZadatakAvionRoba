@@ -20,30 +20,25 @@ public class Zadatak3IzmenaVrednosti {
     public static void main(String[] args) {
         ConnectionSource connectionSource = null;
         try {
-            //Potrebno je prvo konektovati se na bazu
+
             connectionSource = new JdbcConnectionSource("jdbc:sqlite:avionRoba.db");
-            //Instanciranje Dao objekata
+
             avionDao = DaoManager.createDao(connectionSource, Avion.class);
             robaDao = DaoManager.createDao(connectionSource, Roba.class);
 
-            //Prikaz vrednosti tabele Roba
             List<Roba> roba=robaDao.queryForAll();
             for(Roba r:roba)
                 System.out.println("Roba = " + r);
 
 
-            //Pronalazenje robe koja za vrednost kolone opis ima
-            // vrednost "Plasticna stolica"
             List<Roba> pronadjenaRoba=robaDao.queryForEq(Roba.POLJE_OPIS,"Plasticna stolica");
-            Roba robaZaIzmenu=pronadjenaRoba.get(0);//Preuzimamo prvi pronadjeni
-            //Menjamo vrednost atributa opis na Drvena stolica
+            Roba robaZaIzmenu=pronadjenaRoba.get(0);
+
             robaZaIzmenu.setOpis("Drvena stolica");
-            //Cuvamo izmene u bazi, menja se vrednost kolone opis
+
             robaDao.update(robaZaIzmenu);
 
-            /*Prikaz vrednosti tabele Roba
-               da potvrdimo da je vrednost izmenjena
-             */
+          
             roba=robaDao.queryForAll();
             for(Roba r:roba)
                 System.out.println("Roba = " + r);
